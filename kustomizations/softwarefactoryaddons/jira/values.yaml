@@ -43,3 +43,20 @@ additionalInitContainers:
         "-c",
         'echo "Sleeping for 2 minutes so the database has time to start up"; sleep 120',
       ]
+volumes:
+  localHome:
+    persistentVolumeClaim:
+      create: true
+      # storageClassName: your-storage-class-here
+      resources:
+        requests:
+          storage: 1Gi
+
+  # sharedHome requires an RWX storageclass
+  # sharedHome:
+  #   persistentVolumeClaim:
+  #     create: true
+  #     storageClassName: your-storage-class-here
+  #     resources:
+  #       requests:
+  #         storage: 1Gi
