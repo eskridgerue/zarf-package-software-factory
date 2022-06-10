@@ -68,8 +68,7 @@
         "ARG ASDF_VERSION=\"(?<currentValue>\\S+)\""
       ],
       "depNameTemplate": "https://github.com/asdf-vm/asdf.git",
-      "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps"
+      "datasourceTemplate": "git-tags"
     },
     // Golang version
     {
@@ -82,8 +81,7 @@
         "^golang (?<currentValue>\\S+)$"
       ],
       "depNameTemplate": "golang",
-      "datasourceTemplate": "golang-version",
-      "depTypeTemplate": "buildharness-deps"
+      "datasourceTemplate": "golang-version"
     },
     // golangci-lint version
     {
@@ -96,8 +94,7 @@
         "^golangci-lint (?<currentValue>\\S+)$"
       ],
       "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
-      "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps"
+      "datasourceTemplate": "git-tags"
     }
   ]
 }
