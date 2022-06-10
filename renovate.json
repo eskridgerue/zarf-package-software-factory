@@ -36,7 +36,6 @@
         "BIGBANG_VERSION := (?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/bigbang.git",
-      "packageNameTemplate": "bigbang",
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "zarfcomponents-bigbang"
     },
@@ -52,7 +51,6 @@
         "ZARF_VERSION := (?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://github.com/defenseunicorns/zarf.git",
-      "packageNameTemplate": "zarf",
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "zarfbin"
     },
@@ -78,7 +76,6 @@
         "ARG ASDF_VERSION=\"(?<currentValue>\\S+)\""
       ],
       "depNameTemplate": "https://github.com/asdf-vm/asdf.git",
-      "packageNameTemplate": "asdf",
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps"
     },
@@ -93,7 +90,6 @@
         "^golang (?<currentValue>\\S+)$"
       ],
       "depNameTemplate": "https://github.com/golang/go.git",
-      "packageNameTemplate": "golang",
       "datasourceTemplate": "golang-version",
       "depTypeTemplate": "buildharness-deps"
     },
@@ -108,7 +104,6 @@
         "^golangci-lint (?<currentValue>\\S+)$"
       ],
       "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
-      "packageNameTemplate": "golangci-lint",
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps"
     }
