@@ -109,7 +109,8 @@
       ],
       "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps"
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     },
     {
       "fileMatch": [
@@ -120,7 +121,8 @@
       ],
       "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps"
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
