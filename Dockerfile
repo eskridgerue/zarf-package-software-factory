@@ -32,10 +32,10 @@ RUN dnf install -y --refresh \
   && rm -rf /var/cache/yum/
 
 # Install asdf. Get versions from https://github.com/asdf-vm/asdf/releases
-ARG ASDF_VERSION="0.10.1"
+ARG ASDF_VERSION="v0.10.2"
 ENV ASDF_VERSION=${ASDF_VERSION}
 # hadolint ignore=SC2016
-RUN git clone --branch "v${ASDF_VERSION}" --depth 1 https://github.com/asdf-vm/asdf.git "${HOME}/.asdf" \
+RUN git clone --branch "${ASDF_VERSION}" --depth 1 https://github.com/asdf-vm/asdf.git "${HOME}/.asdf" \
   && echo -e '\nsource $HOME/.asdf/asdf.sh' >> "${HOME}/.bashrc" \
   && echo -e '\nsource $HOME/.asdf/asdf.sh' >> "${HOME}/.profile" \
   && source "${HOME}/.asdf/asdf.sh"
