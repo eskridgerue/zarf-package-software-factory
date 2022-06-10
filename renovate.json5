@@ -98,6 +98,21 @@
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps",
       "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // python version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG PYTHON_VERSION=\"(?<currentValue>\\S+)\"",
+        "python (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/python/cpython.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
