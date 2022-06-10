@@ -144,6 +144,21 @@
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps",
       "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // terraform version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG TERRAFORM_VERSION=\"(?<currentValue>\\S+)\"",
+        "terraform (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/hashicorp/terraform.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
