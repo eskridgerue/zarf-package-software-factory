@@ -129,6 +129,21 @@
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps",
       "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // pre-commit version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG PRE_COMMIT_VERSION=\"(?<currentValue>\\S+)\"",
+        "pre-commit (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/pre-commit/pre-commit.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
