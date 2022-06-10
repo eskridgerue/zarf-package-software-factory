@@ -72,28 +72,13 @@
     // Golang version
     {
       "fileMatch": [
-        "^Dockerfile$",
-        "^.tool-versions$"
+        "^Dockerfile$"
       ],
       "matchStrings": [
-        "^ARG GOLANG_VERSION=\\\"(?<currentValue>\\S+)\\\"$",
-        "^golang (?<currentValue>\\S+)$"
+        "ARG GOLANG_VERSION=\"(?<currentValue>.+)\""
       ],
       "depNameTemplate": "golang",
       "datasourceTemplate": "golang-version"
-    },
-    // golangci-lint version
-    {
-      "fileMatch": [
-        "^Dockerfile$",
-        "^.tool-versions$"
-      ],
-      "matchStrings": [
-        "^ARG GOLANGCILINT_VERSION=\"(?<currentValue>\\S+)\"$",
-        "^golangci-lint (?<currentValue>\\S+)$"
-      ],
-      "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
-      "datasourceTemplate": "git-tags"
     }
   ]
 }
