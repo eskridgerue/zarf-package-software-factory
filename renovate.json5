@@ -77,8 +77,8 @@
         "^\\.tool-versions$"
       ],
       "matchStrings": [
-        "^ARG GOLANG_VERSION=\"(?<currentValue>.+)\"$",
-        "^golang (?<currentValue>.+)$"
+        "ARG GOLANG_VERSION=\"(?<currentValue>\\S+)\"",
+        "golang (?<currentValue>\\S+)"
       ],
       "depNameTemplate": "golang",
       "datasourceTemplate": "golang-version",
@@ -91,8 +91,8 @@
         "^\\.tool-versions$"
       ],
       "matchStrings": [
-        "^ARG GOLANGCILINT_VERSION=\"(?<currentValue>.+)\"$",
-        "^golangci-lint (?<currentValue>.+)$"
+        "^ARG GOLANGCILINT_VERSION=\"(?<currentValue>\\S+)\"$",
+        "^golangci-lint (?<currentValue>\\S+)$"
       ],
       "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
       "datasourceTemplate": "git-tags",
