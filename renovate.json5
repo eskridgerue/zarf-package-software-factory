@@ -98,6 +98,29 @@
       "depNameTemplate": "golang",
       "datasourceTemplate": "golang-version",
       "depTypeTemplate": "buildharness-deps"
+    },
+    // golangci-lint version
+    {
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ARG GOLANGCILINT_VERSION=\"(?<currentValue>.+)\""
+      ],
+      "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps"
+    },
+    {
+      "fileMatch": [
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "golangci-lint (?<currentValue>.+)"
+      ],
+      "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps"
     }
   ]
 }
