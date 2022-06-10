@@ -16,6 +16,12 @@
   "pre-commit": {
     "enabled": true
   },
+  "packageRules": [
+    {
+      "matchDepTypes": ["buildharness-deps"],
+      "groupName": "buildharness-deps"
+    }
+  ],
   "regexManagers": [
     // Big Bang version
     {
@@ -67,7 +73,8 @@
         "ARG ASDF_VERSION=\"(?<currentValue>\\S+)\""
       ],
       "depNameTemplate": "https://github.com/asdf-vm/asdf.git",
-      "datasourceTemplate": "git-tags"
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps"
     },
     // Golang version
     {
@@ -78,7 +85,19 @@
         "ARG GOLANG_VERSION=\"(?<currentValue>.+)\""
       ],
       "depNameTemplate": "golang",
-      "datasourceTemplate": "golang-version"
+      "datasourceTemplate": "golang-version",
+      "depTypeTemplate": "buildharness-deps"
+    },
+    {
+      "fileMatch": [
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "golang (?<currentValue>.+)"
+      ],
+      "depNameTemplate": "golang",
+      "datasourceTemplate": "golang-version",
+      "depTypeTemplate": "buildharness-deps"
     }
   ]
 }
