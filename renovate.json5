@@ -16,12 +16,6 @@
   "pre-commit": {
     "enabled": true
   },
-  "packageRules": [
-    {
-      "matchDepTypes": ["buildharness-deps"],
-      "groupName": "buildharness-deps"
-    }
-  ],
   "regexManagers": [
     // Big Bang version
     {
@@ -79,20 +73,11 @@
     // Golang version
     {
       "fileMatch": [
-        "^Dockerfile$"
-      ],
-      "matchStrings": [
-        "ARG GOLANG_VERSION=\"(?<currentValue>.+)\""
-      ],
-      "depNameTemplate": "golang",
-      "datasourceTemplate": "golang-version",
-      "depTypeTemplate": "buildharness-deps"
-    },
-    {
-      "fileMatch": [
+        "^Dockerfile$",
         "^\\.tool-versions$"
       ],
       "matchStrings": [
+        "ARG GOLANG_VERSION=\"(?<currentValue>.+)\"",
         "golang (?<currentValue>.+)"
       ],
       "depNameTemplate": "golang",
@@ -102,21 +87,11 @@
     // golangci-lint version
     {
       "fileMatch": [
-        "^Dockerfile$"
-      ],
-      "matchStrings": [
-        "ARG GOLANGCILINT_VERSION=\"(?<currentValue>.+)\""
-      ],
-      "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
-      "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps",
-      "extractVersionTemplate": "^v(?<version>.*)$"
-    },
-    {
-      "fileMatch": [
+        "^Dockerfile$",
         "^\\.tool-versions$"
       ],
       "matchStrings": [
+        "ARG GOLANGCILINT_VERSION=\"(?<currentValue>.+)\"",
         "golangci-lint (?<currentValue>.+)"
       ],
       "depNameTemplate": "https://github.com/golangci/golangci-lint.git",
