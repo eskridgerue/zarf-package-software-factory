@@ -76,7 +76,7 @@
         "^.tool-versions$"
       ],
       "matchStrings": [
-        "^ARG GOLANG_VERSION=\"(?<currentValue>\\S+)\"$",
+        "^ARG GOLANG_VERSION=\\\"(?<currentValue>\\S+)\\\"$",
         "^golang (?<currentValue>\\S+)$"
       ],
       "depNameTemplate": "golang",
