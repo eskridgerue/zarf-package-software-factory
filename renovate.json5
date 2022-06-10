@@ -217,7 +217,8 @@
       ],
       "depNameTemplate": "https://github.com/mirror/make.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps"
+      "depTypeTemplate": "buildharness-deps",
+      "versioningTemplate": "loose"
     }
   ]
 }
