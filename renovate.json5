@@ -89,7 +89,7 @@
         "^ARG GOLANG_VERSION=\"(?<currentValue>\\S+)\"$",
         "^golang (?<currentValue>\\S+)$"
       ],
-      "depNameTemplate": "https://github.com/golang/go.git",
+      "depNameTemplate": "golang",
       "datasourceTemplate": "golang-version",
       "depTypeTemplate": "buildharness-deps"
     },
