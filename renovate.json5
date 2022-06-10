@@ -68,7 +68,8 @@
       ],
       "depNameTemplate": "https://github.com/asdf-vm/asdf.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "buildharness-deps"
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     },
     // Golang version
     {
@@ -110,6 +111,21 @@
         "python (?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://github.com/python/cpython.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // hadolint version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG HADOLINT_VERSION=\"(?<currentValue>\\S+)\"",
+        "hadolint (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/hadolint/hadolint.git",
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps",
       "extractVersionTemplate": "^v(?<version>.*)$"
