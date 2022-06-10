@@ -16,14 +16,6 @@
   "pre-commit": {
     "enabled": true
   },
-  "packageRules": [
-    {
-      "matchDepTypes": [
-        "buildharness-deps"
-      ],
-      "groupName": "buildharness-deps"
-    }
-  ],
   "regexManagers": [
     // Big Bang version
     {
