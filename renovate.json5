@@ -159,6 +159,65 @@
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "buildharness-deps",
       "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // tflint version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG TFLINT_VERSION=\"(?<currentValue>\\S+)\"",
+        "tflint (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/terraform-linters/tflint.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // tfsec version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG TFSEC_VERSION=\"(?<currentValue>\\S+)\"",
+        "tfsec (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/aquasecurity/tfsec.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // sops version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG SOPS_VERSION=\"(?<currentValue>\\S+)\"",
+        "sops (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/mozilla/sops.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    // make version
+    {
+      "fileMatch": [
+        "^Dockerfile$",
+        "^\\.tool-versions$"
+      ],
+      "matchStrings": [
+        "ARG MAKE_VERSION=\"(?<currentValue>\\S+)\"",
+        "make (?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://github.com/mirror/make.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "buildharness-deps"
     }
   ]
 }

@@ -90,6 +90,18 @@ ENV TFSEC_VERSION=${TFSEC_VERSION}
 RUN asdf plugin add tfsec \
   && asdf install tfsec "${TFSEC_VERSION}"
 
+# Install sops. Get versions using 'asdf list all sops'
+ARG SOPS_VERSION="3.7.2"
+ENV SOPS_VERSION=${SOPS_VERSION}
+RUN asdf plugin add sops \
+  && asdf install sops "${SOPS_VERSION}"
+
+# Install make. Get versions using 'asdf list all make'
+ARG MAKE_VERSION="4.2.1"
+ENV MAKE_VERSION=${MAKE_VERSION}
+RUN asdf plugin add make \
+  && asdf install make "${MAKE_VERSION}"
+
 # Support tools installed as root when running as any other user
 ENV ASDF_DATA_DIR="/root/.asdf"
 
