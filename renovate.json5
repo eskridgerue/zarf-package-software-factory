@@ -61,7 +61,7 @@
         "^zarf.yaml$"
       ],
       "matchStrings": [
-        "https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/confluence\\.git@(?<currentValue>\\S+)"
+        "https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/confluence\\.git@jenkins-(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/confluence.git",
       "datasourceTemplate": "git-tags",
@@ -77,7 +77,8 @@
       ],
       "depNameTemplate": "https://github.com/jenkinsci/helm-charts.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "zarfcomponents"
+      "depTypeTemplate": "zarfcomponents",
+      "extractVersionTemplate": "^jenkins-(?<version>.*)$"
     },
     // Zarf version
     {
