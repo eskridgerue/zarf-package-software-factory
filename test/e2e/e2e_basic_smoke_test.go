@@ -73,5 +73,8 @@ func TestAllServicesRunning(t *testing.T) {
 		// Ensure that Confluence is able to talk to GitLab internally
 		output, err = platform.RunSSHCommandAsSudo(`timeout 600 bash -c \"while ! kubectl exec statefulset/confluence -n confluence -c confluence -- curl -L -s --fail --show-error https://gitlab.bigbang.dev > /dev/null; do sleep 5; done\"`)
 		require.NoError(t, err, output)
+		// Make sure flux is present.
+		output, err = platform.RunSSHCommandAsSudo("flux --help")
+		require.NoError(t, err, output)
 	})
 }
