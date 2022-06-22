@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"testing"
@@ -10,7 +9,6 @@ import (
 	customteststructure "github.com/defenseunicorns/zarf-package-software-factory/test/e2e/terratest/teststructure"
 	"github.com/defenseunicorns/zarf-package-software-factory/test/e2e/types"
 	"github.com/gruntwork-io/terratest/modules/aws"
-	"github.com/gruntwork-io/terratest/modules/logger"
 	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/retry"
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -76,7 +74,7 @@ func SetupTestPlatform(t *testing.T, platform *types.TestPlatform) {
 		// Log into registry1.dso.mil
 		output, err = platform.RunSSHCommandAsSudo(fmt.Sprintf("~/app/build/zarf tools registry login registry1.dso.mil -u %v -p %v", registry1Username, registry1Password))
 		require.NoError(t, err, output)
-		// Install the rest of the packages
+		// Build the rest of the packages
 		output, err = platform.RunSSHCommandAsSudo("cd ~/app && make build/zarf-init-amd64.tar.zst")
 		require.NoError(t, err, output)
 		output, err = platform.RunSSHCommandAsSudo("cd ~/app && make build/zarf-package-flux-amd64.tar.zst")
@@ -85,8 +83,8 @@ func SetupTestPlatform(t *testing.T, platform *types.TestPlatform) {
 		require.NoError(t, err, output)
 		// Try to be idempotent
 		_, _ = platform.RunSSHCommandAsSudo("cd ~/app/build && ./zarf destroy --confirm")
-		// Zarf init
-		output, err = platform.RunSSHCommandAsSudo("cd ~/app/build && ./zarf package deploy zarf-init-amd64.tar.zst --components k3s,gitops-service --confirm")
+		// Init package
+		output, err = platform.RunSSHCommandAsSudo("cd ~/app/build && ./zarf package deploy zarf-init-amd64.tar.zst --components k3s,git-server --confirm")
 		require.NoError(t, err, output)
 		// Deploy Flux
 		output, err = platform.RunSSHCommandAsSudo("cd ~/app/build && ./zarf package deploy zarf-package-flux-amd64.tar.zst --confirm")
@@ -128,20 +126,6 @@ func getEnvVar(varName string) (string, error) {
 	}
 
 	return val, nil
-}
-
-// HoldYourDamnHorses logs a message periodically, because humans suck at waiting and sometimes CI systems do too.
-func HoldYourDamnHorses(ctx context.Context, t *testing.T, period time.Duration) {
-	t.Helper()
-	for {
-		select {
-		case <-ctx.Done():
-			return
-		default:
-			logger.Default.Logf(t, "The test is still running! Don't kill me!")
-		}
-		time.Sleep(period)
-	}
 }
 
 // waitForInstanceReady tries/retries a simple SSH command until it works successfully, meaning the server is ready to accept connections.
