@@ -19,7 +19,8 @@
   "packageRules": [
     {
       "matchPackagePrefixes": [
-        "https://togithub.com/renovatebot/pre-commit-hooks"
+        "https://togithub.com/renovatebot/pre-commit-hooks",
+        "https://github.com/renovatebot/pre-commit-hooks"
       ],
       "schedule": [
         "before 2am"
@@ -45,10 +46,11 @@
     // Postgres Operator version
     {
       "fileMatch": [
-        "^zarf\\.yaml$"
+        ".*\\.yaml"
       ],
       "matchStrings": [
-        "https:\/\/github\\.com\/zalando\/postgres-operator\\.git@(?<currentValue>\\S+)"
+        "https:\/\/github\\.com\/zalando\/postgres-operator\\.git@(?<currentValue>\\S+)",
+        "url: http:\/\/zarf-gitea-http\\.zarf\\.svc\\.cluster\\.local:3000\/zarf-git-user\/mirror__github\\.com__zalando__postgres-operator\\.git\\s+ref:\\s+tag:\\s+(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://github.com/zalando/postgres-operator.git",
       "datasourceTemplate": "git-tags",
@@ -57,12 +59,11 @@
     // Jira version
     {
       "fileMatch": [
-        "^zarf\\.yaml$",
-        "^kustomizations\/softwarefactoryaddons\/base\/gitrepository\\.yaml$"
+        ".*\\.yaml"
       ],
       "matchStrings": [
         "https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/jira\\.git@(?<currentValue>\\S+)",
-        "url: https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/jira\\.git\\s+ref:\\s+tag:\\s+(?<currentValue>\\S+)"
+        "url: http:\/\/zarf-gitea-http\\.zarf\\.svc\\.cluster\\.local:3000\/zarf-git-user\/mirror__repo1\\.dso\\.mil__platform-one__big-bang__apps__third-party__jira\\.git\\s+ref:\\s+tag:\\s+(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/jira.git",
       "datasourceTemplate": "git-tags",
@@ -71,22 +72,33 @@
     // Confluence version
     {
       "fileMatch": [
-        "^zarf\\.yaml$",
-        "^kustomizations\/softwarefactoryaddons\/base\/gitrepository\\.yaml$"
+        ".*\\.yaml"
       ],
       "matchStrings": [
         "https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/confluence\\.git@(?<currentValue>\\S+)",
-        "url: https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/confluence\\.git\\s+ref:\\s+tag:\\s+(?<currentValue>\\S+)"
+        "url: http:\/\/zarf-gitea-http\\.zarf\\.svc\\.cluster\\.local:3000\/zarf-git-user\/mirror__repo1\\.dso\\.mil__platform-one__big-bang__apps__third-party__confluence\\.git\\s+ref:\\s+tag:\\s+(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/confluence.git",
+      "datasourceTemplate": "git-tags",
+      "depTypeTemplate": "zarfcomponents"
+    },
+    // Artifactory version
+    {
+      "fileMatch": [
+        ".*\\.yaml"
+      ],
+      "matchStrings": [
+        "https:\/\/repo1\\.dso\\.mil\/platform-one\/big-bang\/apps\/third-party\/artifactory\\.git@(?<currentValue>\\S+)",
+        "url: http:\/\/zarf-gitea-http\\.zarf\\.svc\\.cluster\\.local:3000\/zarf-git-user\/mirror__repo1\\.dso\\.mil__platform-one__big-bang__apps__third-party__artifactory\\.git\\s+ref:\\s+tag:\\s+(?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/artifactory.git",
       "datasourceTemplate": "git-tags",
       "depTypeTemplate": "zarfcomponents"
     },
     // Jenkins version
     {
       "fileMatch": [
-        "^zarf\\.yaml$",
-        "^kustomizations\/softwarefactoryaddons\/base\/gitrepository\\.yaml$"
+        ".*\\.yaml",
       ],
       "matchStrings": [
         "https:\/\/github\\.com\/jenkinsci\/helm-charts\\.git@jenkins-(?<currentValue>\\S+)",
@@ -100,9 +112,8 @@
     // Zarf version
     {
       "fileMatch": [
-        "zarf\\.yaml",
-        "^Makefile$",
-        "^\\.pre-commit-config\\.yaml$"
+        ".*\\.yaml",
+        "^Makefile$"
       ],
       "matchStrings": [
         "https:\/\/raw\\.githubusercontent\\.com\/defenseunicorns\/zarf\/(?<currentValue>\\S+)\/zarf\\.schema\\.json",
