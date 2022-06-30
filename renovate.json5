@@ -67,7 +67,8 @@
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/jira.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "zarfcomponents"
+      "depTypeTemplate": "zarfcomponents",
+      "versioningTemplate": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-bb.(?<build>\\d+)$"
     },
     // Confluence version
     {
@@ -80,7 +81,8 @@
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/confluence.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "zarfcomponents"
+      "depTypeTemplate": "zarfcomponents",
+      "versioningTemplate": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-bb.(?<build>\\d+)$"
     },
     // Artifactory version
     {
@@ -93,7 +95,8 @@
       ],
       "depNameTemplate": "https://repo1.dso.mil/platform-one/big-bang/apps/third-party/artifactory.git",
       "datasourceTemplate": "git-tags",
-      "depTypeTemplate": "zarfcomponents"
+      "depTypeTemplate": "zarfcomponents",
+      "versioningTemplate": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-bb.(?<build>\\d+)$"
     },
     // Jenkins version
     {
