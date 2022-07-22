@@ -50,6 +50,34 @@ istio:
         - registry.{{ .Values.domain }}
         - artifactory.{{ .Values.domain }}
 
+  postRenderers:
+    #   # Only works with Istio 1.14+
+    #   - kustomize:
+    #       patchesStrategicMerge:
+    #         - kind: IstioOperator
+    #           apiVersion: install.istio.io/v1alpha1
+    #           metadata:
+    #             name: istiocontrolplane
+    #             namespace: istio-system
+    #           spec:
+    #             meshConfig:
+    #               meshMTLS:
+    #                 minProtocolVersion: TLSV1_3
+
+    # Should work with Istio 1.13, but it's ugly.
+    - kustomize:
+        patchesJson6902:
+          - target:
+              group: networking.istio.io
+              version: v1beta1
+              kind: Gateway
+              name: public
+              namespace: istio-system
+            patch:
+              - op: add
+                path: "/spec/servers/1/tls/minProtocolVersion"
+                value: "TLSV1_2"
+
 istiooperator:
   enabled: true
   git:
@@ -438,6 +466,9 @@ addons:
     istio:
       injection: disabled
     values:
+      istio:
+        mtls:
+          mode: PERMISSIVE
       global:
         psql:
           host: "acid-gitlab.gitlab.svc.cluster.local"
@@ -447,9 +478,6 @@ addons:
           password:
             secret: "gitlab.acid-gitlab.credentials.postgresql.acid.zalan.do"
             key: "password"
-      istio:
-        mtls:
-          mode: PERMISSIVE
         # ## https://docs.gitlab.com/charts/installation/deployment#outgoing-email
         # ## Example Outgoing email server settings
         # smtp:
