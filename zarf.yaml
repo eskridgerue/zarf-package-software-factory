@@ -13,7 +13,6 @@ components:
       - source: ./files/modify-coredns.sh
         target: ./modify-coredns.sh
         executable: true
-    # some comment
     scripts:
       retry: false
       after:
