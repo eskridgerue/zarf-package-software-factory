@@ -7,7 +7,7 @@ BIGBANG_VERSION := 1.43.0
 
 # The version of Zarf to use. To keep this repo as portable as possible the Zarf binary will be downloaded and added to
 # the build folder.
-ZARF_VERSION := v0.21.3
+ZARF_VERSION := v0.23.2
 
 # The version of the build harness container to use
 BUILD_HARNESS_VERSION := 0.0.13
@@ -125,9 +125,11 @@ build/zarf-mac-intel: | build ## Download the Mac (Intel) flavor of Zarf to the 
 	@curl -sL https://github.com/defenseunicorns/zarf/releases/download/$(ZARF_VERSION)/zarf_$(ZARF_VERSION)_Darwin_amd64 -o build/zarf-mac-intel
 	@chmod +x build/zarf-mac-intel
 
-build/zarf-init-amd64.tar.zst: | build ## Download the init package
-	@echo "Downloading zarf-init-amd64.tar.zst"
-	@curl -sL https://github.com/defenseunicorns/zarf/releases/download/$(ZARF_VERSION)/zarf-init-amd64.tar.zst -o build/zarf-init-amd64.tar.zst
+build/zarf-init.sha256: | build ## Download the init package and create a small file with the sha256sum of the package so the Makefile can check whether it needs to be updated
+	@echo "Downloading zarf-init-amd64-$(ZARF_VERSION).tar.zst"
+	@curl -sL https://github.com/defenseunicorns/zarf/releases/download/$(ZARF_VERSION)/zarf-init-amd64-$(ZARF_VERSION).tar.zst -o build/zarf-init-amd64-$(ZARF_VERSION).tar.zst
+	@echo "Creating shasum of the init package"
+	@shasum -a 256 build/zarf-init-amd64-$(ZARF_VERSION).tar.zst | awk '{print $$1}' > build/zarf-init.sha256
 
 build/zarf-package-flux-amd64.tar.zst: | build/$(ZARF_BIN) ## Build the Flux package
 	@cd flux && ../build/$(ZARF_BIN) package create --skip-sbom --confirm
