@@ -101,18 +101,14 @@ components:
       - "registry1.dso.mil/ironbank/opensource/istio/pilot:1.15.3"
       - "registry1.dso.mil/ironbank/opensource/istio/proxyv2:1.15.3"
       - "registry1.dso.mil/ironbank/opensource/istio/install-cni:1.15.3"
-
       # istiooperator:
       - "registry1.dso.mil/ironbank/opensource/istio/operator:1.15.3"
-
       # clusterAuditor:
       - "registry1.dso.mil/ironbank/bigbang/cluster-auditor/opa-exporter:v0.0.7"
-
       # policy (OPA Gatekeeper)
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.25.3"
       - "registry1.dso.mil/ironbank/opensource/openpolicyagent/gatekeeper:v3.10.0"
-
       # monitoring:
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/big-bang/grafana/grafana-plugins:9.2.2"
@@ -124,19 +120,15 @@ components:
       - "registry1.dso.mil/ironbank/opensource/prometheus/alertmanager:v0.24.0"
       - "registry1.dso.mil/ironbank/opensource/prometheus/node-exporter:v1.4.0"
       - "registry1.dso.mil/ironbank/opensource/prometheus/prometheus:v2.39.1"
-
       # twistlock:
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/twistlock/console/console:22.06.197"
       - "registry1.dso.mil/ironbank/twistlock/defender/defender:22.06.197"
-
       # metrics server
       - "registry1.dso.mil/ironbank/opensource/kubernetes-sigs/metrics-server:0.6.1"
-
       # confluence
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/atlassian/confluence-data-center/confluence-node:8.0.0"
-
       # gitlab
       - "registry1.dso.mil/ironbank/bitnami/analytics/redis-exporter:v1.46.0"
       - "registry1.dso.mil/ironbank/bitnami/redis:7.0.0-debian-10-r3"
@@ -156,23 +148,18 @@ components:
       - "registry1.dso.mil/ironbank/redhat/ubi/ubi8:8.7"
       - "registry1.dso.mil/ironbank/gitlab/gitlab/gitlab-exporter:15.8.2"
       - "registry1.dso.mil/ironbank/gitlab/gitlab/kubectl:15.8.2"
-
       # gitlab-runner
       - "registry1.dso.mil/ironbank/gitlab/gitlab-runner/gitlab-runner:v15.8.1"
       - "registry1.dso.mil/ironbank/gitlab/gitlab-runner/gitlab-runner-helper:v15.8.1"
       - "registry1.dso.mil/ironbank/redhat/ubi/ubi8:8.7"
-
       # keycloak
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/opensource/keycloak/keycloak:20.0.3"
       - "registry1.dso.mil/ironbank/opensource/postgres/postgresql12:12.13"
-
       # keycloak-p1-auth-plugin
       - "registry1.dso.mil/ironbank/big-bang/p1-keycloak-plugin"
-
       # eck-operator
       - "registry1.dso.mil/ironbank/elastic/eck-operator/eck-operator:2.6.1"
-
       # elasticsearch-kibana
       - "registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:8.6.0"
       - "registry1.dso.mil/ironbank/elastic/kibana/kibana:8.6.1"
@@ -183,16 +170,13 @@ components:
       - "registry1.dso.mil/ironbank/opensource/minio/minio:RELEASE.2022-11-26T22-43-32Z"
       - "registry1.dso.mil/ironbank/opensource/postgres/postgresql11:11.18-1"
       - "registry1.dso.mil/ironbank/opensource/postgres/postgresql12:12.13"
-
       # mattermost-operator
       - "registry1.dso.mil/ironbank/opensource/mattermost/mattermost-operator:v1.19.0"
       # minio
       - "registry1.dso.mil/ironbank/opensource/minio/minio:RELEASE.2022-11-26T22-43-32Z"
-
       # minio-operator
       - "registry1.dso.mil/ironbank/opensource/minio/operator:v4.5.4"
       - "registry1.dso.mil/ironbank/opensource/minio/console:v0.21.3"
-
       # monitoring
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/big-bang/grafana/grafana-plugins:9.3.2"
@@ -204,12 +188,10 @@ components:
       - "registry1.dso.mil/ironbank/opensource/prometheus/alertmanager:v0.24.0"
       - "registry1.dso.mil/ironbank/opensource/prometheus/node-exporter:v1.5.0"
       - "registry1.dso.mil/ironbank/opensource/prometheus/prometheus:v2.40.5"
-
       # sonarqube
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/big-bang/sonarqube-9:9.9.0-community"
       - "registry1.dso.mil/ironbank/opensource/postgres/postgresql12:12.13"
-
       # vault
       - "registry1.dso.mil/ironbank/big-bang/base:2.0.0"
       - "registry1.dso.mil/ironbank/hashicorp/vault/vault-k8s:1.1.0"
@@ -328,6 +310,7 @@ components:
       # - releases-docker.jfrog.io/jfrog/xray-persist:3.31.1
       # - releases-docker.jfrog.io/jfrog/xray-server:3.31.1
       # - releases-docker.jfrog.io/vault:1.3.4
+
 
   - name: optional-tools-linux-amd64
     required: false
