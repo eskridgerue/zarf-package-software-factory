@@ -7,7 +7,7 @@ components:
   - name: setup
     required: true
     repos:
-      - https://github.com/defenseunicorns/zarf-package-software-factory.git
+      - https://github.com/eskridgerue/zarf-package-software-factory.git
     manifests:
       - name: setup-config
         files:
